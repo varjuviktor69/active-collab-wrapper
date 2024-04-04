@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9bbd3976012d5a30a5f6721e86c380d",
+    "content-hash": "ecb959c55d814d0924d181e9b7ad2ff8",
     "packages": [
         {
             "name": "brick/math",
@@ -5686,6 +5686,57 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "activecollab/activecollab-feather-sdk",
+            "version": "3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/activecollab/activecollab-feather-sdk.git",
+                "reference": "851a3e607e1d597cda2b8d67ca8584d231261d20"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/activecollab/activecollab-feather-sdk/zipball/851a3e607e1d597cda2b8d67ca8584d231261d20",
+                "reference": "851a3e607e1d597cda2b8d67ca8584d231261d20",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ActiveCollab\\SDK\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ilija Studen",
+                    "email": "ilija.studen@activecollab.com"
+                }
+            ],
+            "description": "This is a simple PHP library that makes communication with Active Collab API easy",
+            "homepage": "https://github.com/activecollab/activecollab-feather-sdk",
+            "keywords": [
+                "activecollab",
+                "api",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/activecollab/activecollab-feather-sdk/issues",
+                "source": "https://github.com/activecollab/activecollab-feather-sdk/tree/master"
+            },
+            "time": "2019-03-15T22:37:04+00:00"
+        },
         {
             "name": "fakerphp/faker",
             "version": "v1.23.1",
