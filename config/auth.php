@@ -40,6 +40,9 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'active-collab' => [
+            'driver' => 'custom-token',
+        ],
     ],
 
     /*
