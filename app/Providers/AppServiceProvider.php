@@ -2,11 +2,14 @@
 
 namespace App\Providers;
 
+use App\Interfaces\ActiveCollab\AuthService;
 use App\Interfaces\ActiveCollab\TaskService;
+use App\Models\User;
+use App\Services\ActiveCollab\AuthServiceImpl;
+use App\Services\ActiveCollab\TaskServiceImpl;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-use TaskServiceImpl;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,6 +19,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(TaskService::class, TaskServiceImpl::class);
+        $this->app->singleton(AuthService::class, AuthServiceImpl::class);
     }
 
     /**
@@ -23,8 +27,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Auth::viaRequest('custom-token', function(Request $request) {
-            // TODO: implement authentication logic here
+        Auth::viaRequest('active-collab-token', function(Request $request) {
+            if ($request->session()->get('active-collab-token')) {
+                return new User([
+                    'active-collab-token'
+                ]);
+            } else {
+                return null;
+            }
         });
     }
 }

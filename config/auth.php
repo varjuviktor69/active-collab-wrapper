@@ -41,7 +41,8 @@ return [
             'provider' => 'users',
         ],
         'active-collab' => [
-            'driver' => 'custom-token',
+            'driver' => 'active-collab-token',
+            'provider' => 'users',
         ],
     ],
 
