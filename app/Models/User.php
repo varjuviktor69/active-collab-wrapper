@@ -17,9 +17,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'active_collab_token',
+        'asd',
     ];
 
     /**
@@ -28,8 +27,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'active_collab_token',
     ];
 
     /**
@@ -40,8 +38,12 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            //
         ];
+    }
+
+    public function getActiveCollabToken(): ?string
+    {
+        return $this->active_collab_token;
     }
 }
