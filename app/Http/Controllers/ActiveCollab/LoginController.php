@@ -25,8 +25,10 @@ class LoginController
         $dto = AuthenticationRequestDto::fromRequest($request);
         $token = $this->authService->generateToken($dto);
 
+        $activeCollabUser = $this->authService->getAuthenticatedUser($token);
+
         session()->regenerate();
-        session()->put('active-collab-token', $token);
+        session()->put('active-collab-user', $activeCollabUser);
 
         if (url()->previous() !== url()->current()) {
             return redirect()->back();

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use ActiveCollab\SDK\TokenInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'active_collab_token',
-        'asd',
+        'logged_user_id'
     ];
 
     /**
@@ -28,6 +30,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'active_collab_token',
+        'logged_user_id',
     ];
 
     /**
@@ -42,8 +45,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function getActiveCollabToken(): ?string
+    public function getActiveCollabToken(): TokenInterface
     {
         return $this->active_collab_token;
+    }
+
+    public function getLoggedUserId(): int
+    {
+        return $this->logged_user_id;
     }
 }
