@@ -28,13 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Auth::viaRequest('active-collab-token', function(Request $request) {
-            if ($request->session()->get('active-collab-token')) {
-                return new User([
-                    'active-collab-token'
-                ]);
-            } else {
-                return null;
-            }
+            return $request->session()->get('active-collab-user') ?? null;
         });
     }
 }
