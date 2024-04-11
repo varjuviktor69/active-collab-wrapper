@@ -1,4 +1,4 @@
-document.querySelector('.content').addEventListener('click', async (event) => {
+document.querySelector('body').addEventListener('click', async (event) => {
     if (event.target.className === 'view-task') {
         event.preventDefault();
 
@@ -9,7 +9,7 @@ document.querySelector('.content').addEventListener('click', async (event) => {
 
             const html = await response.text();
 
-            document.querySelector(anchor.parentElement.insertAdjacentHTML('afterbegin', html));
+            document.querySelector('body').insertAdjacentHTML('afterbegin', html);
 
             if (!response.ok) {
                 throw new Error('Failed to fetch task details!');

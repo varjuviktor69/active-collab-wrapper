@@ -3,5 +3,5 @@
     'action' => route('logout'),
 ])
 @section('form-body')
-    <button>Sign out</button>
+    <button class="logout">Sign out</button>
 @endsection

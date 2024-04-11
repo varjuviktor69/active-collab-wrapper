@@ -1,4 +1,104 @@
 .login-container {
     display: grid;
     place-items: center;
+    width: 100vw;
+    height: 80vh;
+}
+
+.login-container div, button {
+    margin: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+}
+
+.container .footer {
+    border-top: 3px solid black;
+    padding-top: 10px;
+    place-self: end;
+}
+
+.container .header {
+    border-bottom: 3px solid black;
+    place-self: start;
+}
+
+.container .contetn {
+    place-self: center;
+}
+
+.container .header, .container .footer {
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+
+.footer button, .header h1 {
+    margin: 15px;
+}
+
+.content {
+    display: grid;
+    place-items: center;
+    height: 80vh;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.task-container * {
+    padding: 0 10px;
+}
+
+.task-container a {
+    padding-bottom: 10px;
+}
+
+.box {
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+        0 12.5px 10px rgba(0, 0, 0, 0.06),
+        0 5px 17.9px rgba(0, 0, 0, 0.072),
+        0 7px 33.4px rgba(0, 0, 0, 0.086),
+        0 16px 80px rgba(0, 0, 0, 0.12);
+
+    border-radius: 5px;
+}
+
+a, a:hover, a:visited, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.view-task {
+    border: 1px solid black;
+    padding: 2px;
+    margin-bottom: 2px;
+    border-radius: 3px;
+}
+
+button {
+    padding: 5px 15px;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+dialog {
+    position: absolute;
+    z-index: 1;
+}
+
+body:has(dialog) >:not(dialog) {
+    opacity: 0.2;
 }
