@@ -1,8 +1,14 @@
 @extends('layouts.app')
 @section('body')
-    <H1>Your Tasks</H1>
+<div class="container">
+    <div class="header">
+        <h1>Your Tasks</h1>
+    </div>
     <div class="content"></div>
-    @include('logout')
+    <div class="footer">
+        @include('logout')
+    </div>
+</div>
     <script>
         const TASKS_AJAX_URL = "{{ route('tasks.getAll') }}";
     </script>

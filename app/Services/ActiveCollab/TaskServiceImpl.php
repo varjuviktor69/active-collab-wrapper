@@ -55,6 +55,24 @@ class TaskServiceImpl implements TaskService
             });
         }
 
-        return Arr::map($tasks, fn($v) => TaskDto::fromArray($v));
+        $tasks = Arr::map($tasks, function($task) {
+           $dto = TaskDto::fromArray($task);
+           
+           $this->setTaskAssignee($dto);
+
+           return $dto;
+        });
+
+        return $tasks;
+    }
+
+    private function setTaskAssignee(TaskDto $dto): void
+    {
+        $assignee = json_decode(
+            app(Client::class)->get('/users/' . $dto->getAssigneeId())->getBody(),
+            true
+        )['single'];
+
+        $dto->setAssignee($assignee);
     }
 }
