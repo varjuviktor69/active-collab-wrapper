@@ -22,6 +22,11 @@ class LoginController
 
     public function login(Request $request): Redirector|RedirectResponse
     {
+        $request->validate([
+            'email' => 'required|email:rfc,dns',
+            'password' => 'required|string',
+        ]);
+
         $dto = AuthenticationRequestDto::fromRequest($request);
         $token = $this->authService->generateToken($dto);
 

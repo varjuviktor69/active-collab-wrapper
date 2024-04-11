@@ -29,7 +29,6 @@ class TaskController
 
         $task = $this->taskService->find(TaskFilterDto::fromRequest($request));
 
-        \Log::info($task->toArray());
         return view('tasks.view', $task->toArray());
     }
 }
